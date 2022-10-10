@@ -1,0 +1,137 @@
+# > Mayor
+# < Menor
+# == Exactamente igual
+# <= Menor o igual
+# >= Mayor o igual
+
+a = 5
+b = 6
+c = 7
+
+#AND -> True, False
+
+print("t y t", True and True)
+print("t y f", True and False)
+print("f y t", False and True)
+print("f y f", False and False)
+
+#OR -> True, False
+
+print("t o t", True or True)
+print("t o f", True or False)
+print("f o t", False or True)
+print("f o f", False or False)
+
+# XOR -> True, False
+
+print("t xor t", True or True)
+print("t xor f", True or False)
+print("f xor t", False or True)
+print("f xor f", False or False)
+
+resultado = (a < 5 and c < 7)
+resultado = False
+
+a = 5
+b = 6
+c = 7
+
+resultado = (a>=5 pr c>7)
+resultado = (True or False)
+resultado = (True)
+
+resultado = (a>=5 pr c>7) and (b ==5))
+resultado = ((True or False) and (False))
+resultado = (True and False)
+resultado = (False)
+
+
+
+
+
+
+
+
+a=5
+b=6
+
+if a >=5 and b<=6:  #El if solo se ejecuta si la condicion es cierta
+    print("A es mayor o igual que 5 y b es menor o igual que 6")
+elif a>=6: #Esto sirve para poner otra condicion
+    print("A es mayor o igual que 6")
+else:
+    print("No se cumple NADA de lo anterior")
+
+print("Fin del IF")
+
+
+
+
+
+
+contador = 1
+
+while contador <= 10:
+    print("contador vale", contador)
+    contador += 1
+
+print("Fin del while")
+
+
+
+
+#while mientras la condicion sea True, ejecuta las acciones
+
+contador = 1
+
+while contador <= 10:
+    contador += 1
+
+    if contador % 2 == 0:
+        print(contador, "es un numero par")
+        continue
+
+    print("Estiy aqui porque contador vale", contador, "y no se ha disparado el continue")
+
+print("fuera del while")
+
+
+
+
+
+lista = [ 1, 2, 3, 4, 5, 6]
+print(lista)
+
+
+listaOrdenada = sorted(lista, reverse=True)
+print(listaOrdenada)
+
+
+
+
+
+valor = 3
+#SWITCH EN PYTHON LA PALABRA RESERVADA ES match-case
+if valor ==1:
+    print("valor es 1")
+elif valor ==2:
+    print("valor es 2")
+elif valor ==3:
+    print("valor es 3")
+elif valor == 4:
+    print("valor es 4")
+elif valor ==5:
+    print("valor es 5")
+
+
+match valor:
+    case 1:
+        print("valor es 1")
+    case 2:
+        print("valor es 2")
+    case 3:
+        print("valor es 3")
+    case 4:
+        print("valor es 4")
+    case 5:
+        print("valor es 5")
