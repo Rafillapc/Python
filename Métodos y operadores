@@ -1,0 +1,51 @@
+ mitexto="hola, esto es un text0"
+ >>> mitexto.capitalize()
+'Hola, esto es un text0'>>> mitexto.title()
+'Hola, Esto Es Un Text0'
+>>> mitexto.lower()
+'hola, esto es un text0'
+>>> mitexto.upper()
+'HOLA, ESTO ES UN TEXT0'
+>>> mitexto.replace("a","o")
+'holo, esto es un text0'
+>>> mitexto.find("esto")
+6
+>>> mitexto.split()
+['hola,', 'esto', 'es', 'un', 'text0']
+>>> mitexto.replace(",","")
+'hola esto es un text0'
+>>> listaTexto=["hola","esto","es","un","texto"]
+>>> print(listaTexto)
+['hola', 'esto', 'es', 'un', 'texto']
+>>>
+>>> variable = 5
+>>> 1+4
+5
+>>> a = 5
+>>> b = 4
+>>> a-b
+1
+>>> a*b
+20
+>>> a%b
+1
+>>> a // b
+1
+>>> a**b
+625
+>>> a+=5
+>>> print(a)
+10
+>>> a-=5
+>>> print(a)
+5
+>>>
+>>> numeros = 5
+>>> cadenas= "hola"
+>>> booleano = True
+>>> flotante = 5.5
+>>> listas = ["a","b","c"]
+>>> tupla = ("a","b","c")
+>>> diccionario = {"clave1":1, "clave2":2, "clave3"=3}
+  File "<stdin>", line 1
+    diccionario = {"clave1":1, "clave2":2, "clave3"=3}
