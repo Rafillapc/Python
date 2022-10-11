@@ -1,0 +1,32 @@
+def miFuncion(nombre):
+    print("Hola", nombre)
+
+def matematicas(a, b):
+    def suma(a, b):
+        print(a+b)
+
+    def resta(a, b):
+        print(a-b)
+
+    suma(a, b)
+    resta(a, b)
+
+matematicas(5, 3)
+
+def miFuncion(nombre="Rafi"):
+    hoyHace = 6.0
+    print("Hola", nombre, "la temperatura es de", hoyHace)
+
+#----------#
+
+def suma(a, b=5, c=1):
+    print(a +b +c)
+
+suma(3)
+suma(1, 1, 1)
+
+anonima = lambda nombre, nombre2: print("Hola", nombre, "adios", nombre2)
+anonima("Pepe", "Juan")
+
+def sumatoria(x):
+    return x+x
