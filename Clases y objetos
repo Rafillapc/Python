@@ -1,0 +1,60 @@
+class Dino:
+    _encendido = True
+
+    def enciende(self):
+        self._encendido=True
+
+    def apaga(self):
+        self._encendido=False
+
+    def isEncendido(self):
+        return self._encendido
+
+d = Dino()  #Para yo utilizar un método dentro de una clase tengo que instanciar la clase creando un objeto
+d.apaga()
+print(d.isEncendido())
+
+d2=Dino()
+d2.enciende()
+print(d2.isEncendido())
+
+print(d.isEncendido())
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+class Juguete:
+    _encendido = True
+
+    def enciende(self):
+        print("Enciendo el aparato")
+        self._encendido=True
+
+    def apaga(self):
+        print("Apago el aparato")
+        self._encendido=False
+
+    def isEncendido(self):
+        return self._encendido
+
+class Potato(Juguete):
+    def quitarOreja(self):
+        pass
+
+    def ponerOreja(self):
+        pass
+
+
+class Dino(Juguete):
+    def verEscamas(self):
+        pass
+
+p=Dino()
+p.enciende()
+print(p.isEncendido())
+p.apaga()
+print(p.isEnc
