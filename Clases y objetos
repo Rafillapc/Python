@@ -24,7 +24,7 @@ print(d.isEncendido())
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
-
+#HERENCIA
 
 
 class Juguete:
@@ -50,11 +50,76 @@ class Potato(Juguete):
 
 
 class Dino(Juguete):
+    color = None
+    nombre = None
+
+    def __init__(self, nombre): #Esta palabra reservada sirve para declarar el constructor
+        super().__init__() #super determina cual es mi clase padre, y con innit llamo al constructor de ella
+        print("Estoy en el constructor de la clase dino")
+
     def verEscamas(self):
         pass
 
-p=Dino()
-p.enciende()
-print(p.isEncendido())
-p.apaga()
-print(p.isEnc
+p=Dino("Dinosaurio")
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#ABSTRACCION
+
+from abc import ABC, abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def sonido(self):
+        pass
+
+    def diHola(self):
+        print("Hola")
+
+class Perro(Animal):
+    def sonido(self):
+        print("guau")
+
+class Gato(Animal):
+    def sonido(self):
+        print("marramiau")
+
+
+p=Perro()
+p.sonido()
+p.diHola()
+
+g=Gato()
+g.sonido()
+g.diHola()
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+#COMPOSICION
+
+class Motor:
+    tipo = "diesel"
+
+
+class Ventanas:
+    cantidad = 5
+
+
+class Ruedas:
+    cantidad = 4
+
+class Carroceria:
+    ventanas = Ventanas()
+    ruedas = Ruedas()
+
+
+class Coche:
+    motor = Motor()
+    carroceria = Carroceria()
+
+c = Coche()
+print("Motor es", c.motor.tipo)
+print("Ventanas:"
