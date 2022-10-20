@@ -1,0 +1,64 @@
+numero = 511
+texto = "Quijote"
+otromas = 1.2
+
+#print("El numero es %d yl texto es %s y tiene %f" % (numero, texto, otromas))
+#print("El numero es {} y el texto es {} y tiene {}".format(numero, texto, otromas))
+
+def suma (a, b):
+    return a+b
+
+print(f"El numero es {suma(numero, numero)} y el texto es {texto.upper()} y tiene {otromas}")
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+num = 511
+print(type(num))
+
+numtxt = str(num)  #str sirve para representar textualmente un objeto pero es para hacer una descripcion
+print(type(numtxt))
+
+print(repr(num)) #y repr es mas tecnico
+print(numtxt)
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+class Juguete:
+    nombre = ""
+    precio = 0.0
+
+    def __init__(self, nombre, precio):
+        self.nombre = nombre
+        self.precio = precio
+
+    def __str__(self) -> str:
+        return f"Mi nombre es {self.nombre} y mi precio es {self.precio}"
+        pass
+
+    def __repr__(self) -> str:
+        return f"potato({self.nombre,{self.precio}})"
+        pass
+#con la sobrecarga de __str__ se hace la representacion para humanos, y sin esta, se imprime por pantalla <__main__.Juguete object at 0x0000020F6A20B730>
+j1 = Juguete("Potato", 10.5)
+
+print(j1)
+
+print(repr(j1))
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+cadena = "En un lugar de la manchA"
+print(cadena.capitalize())
+print(cadena.title())
+print(cadena.count("d")) #esto indica cuantas veces aparece la letra que pasamos por parametro en una cadena, distingue entre mayusculas y minusculas
+print(cadena.upper())
+print(cadena.lower())
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
