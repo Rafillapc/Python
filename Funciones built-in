@@ -1,0 +1,163 @@
+#Programación multihilo
+
+import _thread
+import time
+
+def horaActual(nombre_thread, tiempo_de_espera):
+    count = 0
+
+    while count < 5:
+        time.sleep(tiempo_de_espera)
+        count += 1
+        print(f'hilo: {nombre_thread} - {time.ctime(time.time())}')
+
+
+_thread.start_new_thread(horaActual, ("thread_uno", 1))
+
+_thread.start_new_thread(horaActual, ("thread_dos", 2))
+
+print("He disparado ya los hilos")
+
+#Al ejecutar el programa muestra primero el print ya que al ejecutarse en paralelo se ejecuta primero el print ya que los demas tienen que esperar 1 y 2 segundos respectivamente
+
+while True:
+    pass
+    
+    
+    
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import logging  #el loggin sirve para generar funciones de registro
+
+logging.basicConfig(level=logging.INFO)   #Aqui se configura para que muestr informacion a partir de cierta criticidad(info, warning, error, critical)
+logging.info("Arrancando programa")
+logging.warning("hace calor")
+logging.error("test")
+logging.critical("adios")
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+def miFuncion(x):
+    if x % 2 == 0:
+        return True
+    
+    return False
+
+
+resultado = filter(miFuncion, numeros)
+print(list(resultado))
+
+#La funcion que invoca filter debe devolver true o false y aplica una funcion a todos los elementos de una lista, si es True guarda el valor, si es False no
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+from functools import reduce
+from unittest import result
+
+
+def cuadrado(x):
+    return x * x
+
+resultado = map(cuadrado, [1, 2, 3, 4, 5, 6, 7, 8, 9])
+print(list(resultado))
+
+#mientras que filter solo aplica la funcion sobre ciertos elementos de la lista, map aplica la funcion indiscriminadamente a todos los elementos 
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+from functools import reduce #Hay que usar esto para usar la funcion reduce
+
+def suma(a, b):
+    print(f'a={a}, b={b} ')
+    return a + b
+
+res = reduce(suma, [1, 2, 3, 4, 5, 6, 7, 8, 9]) #reduce va a usar repetidamente la funcion sobre la lista hasta que la lista se quede con un unico elemento
+print(res)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+cursos = ['Java', 'Python', 'Git']
+asistentes = [15, 20, 4]
+demo = zip(cursos, asistentes)
+print(list(demo))
+
+#Esto sive para asociar multiples cosas en una lista
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+listaA = [1 == 1, 2 == 2, 3 == 4]
+res = any(listaA)
+print(res)
+
+#con any si cualquier condicion es correcta devuelve true, sin embargo con all tienen que ser todas true para que devuelva true
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+a = 5.5
+b = 5.4 
+c = 5.6
+
+print(round(a))
+print(round(b))
+print(round(c))
+
+#round te devuelve el valor que les hayas pasado redondeados
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+print(min(2, 3, 4, 5, 6, 7, 8))
+
+#min te devuelve el valor mas pequeño de la lista
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+print(pow(2, 4))
+
+#pow te devuelve el primer valor elevado al segundo
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+lista = ['z', 'g', 'y', 'w']
+ordenada = sorted(lista)
+print(ordenada)
+
+lista2 = ['z', 'g', 'y', 'w']
+ordenada = sorted(lista2, reverse=True)
+print(ordenada)
+
+
+#sorted te ordena una lista
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+secreto = 50
+
+valor = 0
+while valor != secreto:
+    valor = int(input("Introduce un numero: "))  #Aqui hemos convertido un string a un integer, ya que el valor que le pasamos siempre al inpur es string y 
+                                                  por lo tanto no podria hacer esa comparacion
+
+
+    if valor > secreto:
+        print("Muy alto")
+
+    if valor < secreto:
+        print("Muy bajo")
+        continue
+
+print("Acertaste loquete")
