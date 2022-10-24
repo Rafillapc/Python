@@ -1,0 +1,293 @@
+from curses import window
+import tkinter
+
+from numpy import blackman
+
+window = tkinter.Tk()
+
+label_saludo = tkinter.Label(window, text="Hola", bg="black", fg="blue") #con esto generamos una etiqueta, indicamos que la queremos en la ventana y añadimos un texto
+label_saludo.pack(ipadx=50, ipady=50, fill="x", side="left")  #con esto agrupamos la etiqueta dentro de la ventana. la propiedad fill es un relleno horizontal(ya que le he pasado "x" y con "both" crece en los dos) y side para posicionarlo
+
+label_adios = tkinter.Label(window, text="Adios", bg="red", fg="white") #al hacer una etiqueta podemos tambien cambiarle el color de la letra y del fondo
+label_adios.pack(ipadx=50, ipady=100, fill="y", expand=True) #y aqui podemos pasar por parametro el padding que queramos a lo largo y a lo ancho. El expand añade mas esapcio a un objeto
+
+window.mainloop()     #asi generamos una ventanita 
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+from curses import window
+import tkinter
+
+from numpy import blackman
+
+window = tkinter.Tk()
+
+label1 = tkinter.Label(window, text="Label1", bg="black", fg="blue") 
+label1.pack(ipadx=45, ipady=15, fill="x") 
+
+label2 = tkinter.Label(window, text="label2", bg="red", fg="white") 
+label2.pack(ipadx=45, ipady=15, fill="x") 
+
+label3 = tkinter.Label(window, text="label3", bg="blue", fg="white") 
+label3.pack(ipadx=45, ipady=15, fill="x") 
+
+label4 = tkinter.Label(window, text="label4", bg="red", fg="white") 
+label4.pack(ipadx=15, ipady=15, side="left") 
+
+label5 = tkinter.Label(window, text="label5", bg="yellow", fg="black") 
+label5.pack(ipadx=15, ipady=15, side="left") 
+
+label6 = tkinter.Label(window, text="label6", bg="green", fg="white") 
+label6.pack(ipadx=15, ipady=15, side="right") 
+
+
+window.mainloop()     
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+from curses import window
+import logging
+import tkinter
+from tkinter import W, ttk
+
+from numpy import pad #template toolkit, es para hacer que tengan cierto estilo las aplicaciones
+
+window = tkinter.Tk()
+
+#(0,0)  (1,0)  (2,0)
+#(0,1)  (1,1)  (2,1)
+#(0,2)  (1,2)  (2,2)
+#(0,3)  (1,2)  (2,3)
+
+window.columnconfigure(0, weight=1)
+window.columnconfigure(1, weight=3)
+
+#Usuario
+username_label = ttk.Label(window, text="Username: ")
+username_label.grid(column=0, row=0, sticky=tkinter.W, padx=5, pady=5) #con esto indico que quiero que este en la columna y en la fila 0
+#el tkinter usa el posicionamiento de la rosa de los vientos (norte, sur, este y oeste)
+
+#Ingresar usuario
+username_entry = ttk.Entry(window)
+username_entry.grid(column=1, row=0, sticky=tkinter.E, padx=5, pady=5)
+
+#contraseña
+username_label = ttk.Label(window, text="Password: ")
+username_label.grid(column=0, row=1, sticky=tkinter.W, padx=5, pady=5) 
+
+#ingresar contraseña
+username_entry = ttk.Entry(window, show="*")
+username_entry.grid(column=1, row=1, sticky=tkinter.E, padx=5, pady=5)
+
+#boton logging
+login_button = ttk.Button(window, text="Login")
+login_button.grid(column=1, row=3, sticky=tkinter.E, padx=5, pady=5 )
+window.mainloop()
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+from cProfile import label
+from curses import window
+from random import random
+import tkinter
+import random
+
+from tkinter import ttk
+from turtle import bgcolor
+
+window = tkinter.Tk()
+
+colors = ["blue", 'red', 'yellow', 'green', 'black', 'purple']
+
+for x in range(0,10):
+    color = random.randint(0, len(colors)-1)
+    color2 = random.randint(0, len(colors)-1)
+    label = tkinter.Label(window, text="etiqueta", bg=colors[color], fg=colors[color2])
+    label.place(x=random.randint(0, 100), y=random.randint(0,100))
+
+
+
+window.mainloop()
+
+#con esto podemos poner las etiquetas de forma aleatoria
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+from cProfile import label
+from curses import window
+import logging
+import tkinter
+from tkinter import W, ttk
+
+from numpy import pad #template toolkit, es para hacer que tengan cierto estilo las aplicaciones
+
+window = tkinter.Tk()
+
+#(0,0)  (1,0)  (2,0)
+#(0,1)  (1,1)  (2,1)
+#(0,2)  (1,2)  (2,2)
+#(0,3)  (1,2)  (2,3)
+
+window.columnconfigure(0, weight=1)
+window.columnconfigure(1, weight=3)
+
+frame = ttk.Frame(window)
+
+label = ttk.Label(frame, text="Hola")
+label.grid(column=0, row=0, sticky=tkinter.W, padx=50, pady=50)
+
+frame.grid(column=0, row=0, sticky=tkinter.W)
+window.mainloop()
+sys.exit(0) #esto lo que hace es finalizar el programa en este momento
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+from cProfile import label
+from curses import window
+import logging
+import tkinter
+from tkinter import W, Listbox, StringVar, ttk
+
+from numpy import pad #template toolkit, es para hacer que tengan cierto estilo las aplicaciones
+
+window = tkinter.Tk()
+
+#(0,0)  (1,0)  (2,0)
+#(0,1)  (1,1)  (2,1)
+#(0,2)  (1,2)  (2,2)
+#(0,3)  (1,2)  (2,3)
+
+window.columnconfigure(0, weight=1)
+window.columnconfigure(1, weight=3)
+
+lista = ['windows', 'macOS', 'Linux','MS DOS']
+lista_items = tkinter.StringVar(value=lista)
+listbox = tkinter.Listbox(window, height = 100, listvariable=lista_items)
+listbox.grid(column=0, row=0, sticky=tkinter.W)      #Aqui he creado una lista donde puedo seleccionar los elementos de la lista 
+
+window.mainloop()
+sys.exit(0) #esto lo que hace es finalizar el programa en este momento
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+from cProfile import label
+from curses import window
+import logging
+import tkinter
+from tkinter import W, Listbox, StringVar, ttk
+
+from numpy import pad, var #template toolkit, es para hacer que tengan cierto estilo las aplicaciones
+
+window = tkinter.Tk()
+
+window.columnconfigure(0, weight=1)
+window.columnconfigure(1, weight=3)
+
+
+selected = tkinter.StringVar()
+r1 = ttk.Radiobutton(window, text="Si", value="1", variable=selected) #En variable se guardará el contenido del boton que yo he pinchado
+r2 = ttk.Radiobutton(window, text="No", value="2", variable=selected)
+r3 = ttk.Radiobutton(window, text="Quizá", value="3", variable=selected)
+
+r1.grid(column=0, row=1, padx=5, pady=5)
+r2.grid(column=0, row=2, padx=5, pady=5)
+r3.grid(column=0, row=3, padx=5, pady=5)
+
+seleccionado2 = tkinter.StringVar()
+
+rs1 = ttk.Radiobutton(window, text="Si2", value="12", variable=seleccionado2) #cuando selecciono otros este sigue permaneciendo activo porque le he puesto una variable distinta
+rs1.grid(column=1, row=0, pady=5, padx=5)
+
+window.mainloop()
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+from curses import window
+import logging
+from msilib.schema import CheckBox
+from tabnanny import check
+import tkinter
+from tkinter import W, Checkbutton, Listbox, StringVar, ttk
+
+from numpy import pad, var #template toolkit, es para hacer que tengan cierto estilo las aplicaciones
+
+window = tkinter.Tk()
+
+window.columnconfigure(0, weight=1)
+window.columnconfigure(1, weight=3)
+
+def mifuncion():
+    print("clicado")
+
+selected = tkinter.StringVar()
+
+CheckBox = ttk.Checkbutton(window, text="Acepto las condiciones", variable=selected, command=mifuncion)
+CheckBox.grid(row=0, column=0)
+
+window.mainloop()
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+from cProfile import label
+from curses import window
+import logging
+from msilib.schema import CheckBox
+from tabnanny import check
+import tkinter
+from tkinter import W, Checkbutton, Listbox, StringVar, ttk
+
+from numpy import pad, var #template toolkit, es para hacer que tengan cierto estilo las aplicaciones
+
+window = tkinter.Tk()
+
+
+def salir(event):
+    print("Adios")
+    window.quit()
+
+def saludar(event):
+    print("Han hecho click en saludar")
+
+def saludarDobleclick(event):
+    print("Han hecho DOBLE click en saludar")
+
+
+boton = tkinter.Button(window, text="Haz click")
+boton.pack()
+boton.bind('<Button-1>', saludar)
+boton.bind('<Double-1>', saludarDobleclick)
+
+botonSalir = tkinter.Button(window, text="Salir")
+botonSalir.pack()
+botonSalir.bind('<Button-1>', salir)
+window.quit()
+
+
+window.mainloop()
+
